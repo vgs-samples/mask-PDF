@@ -66,7 +66,23 @@ curl -X GET 'https://3eaac825.ngrok.io/redacted.pdf' -k \
 -H "Content-type: application/pdf" \
 -o revealed.pdf
 ```
+You can also use a code script:
+```
+import requests
 
+url='https://d9bc7892.ngrok.io/redacted.pdf'
+headers = {'Content-type': 'Application/pdf'}
+r = requests.get(url,
+        headers=headers,
+        proxies={"https" : "https://<HTTPS_PROXY_USERNAME>:<HTTPS_PROXY_PASSWORD>@tntk5u0xlui.SANDBOX.verygoodproxy.com:8080"},
+        verify=False)
+
+
+with open('pdf-sample-revealed.pdf', 'wb') as f:
+    f.write(r.content)
+```
+
+ ![unmaskpdf](unmask-pdf.gif "unmask pdf")
 
 
 
