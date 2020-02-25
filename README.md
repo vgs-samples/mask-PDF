@@ -51,5 +51,22 @@ python3 pdf_demo_reveal.py //reveals
 Each one creates a file first one called pdf-sample-redacted.pdf, second one called pdf-sample-revealed.pdf
 
 
+## Host a PDF and test Reveal/Redact
+
+You can also test reveal/redact while hosting PDF via python simple http server and ngrok (make sure you run in from the directory where redacted.pdf is. 
+
+```bash
+python -m SimpleHTTPServer 8000 # Or use Python 3 with python -m http.server 8000
+ngrok http 8000
+```
+Run Test:
+```
+curl -X GET 'https://3eaac825.ngrok.io/redacted.pdf' -k \
+-x $HTTPS_PROXY_USERNAME:$HTTPS_PROXY_PASSWORD@tntk5u0xlui..SANDBOX.verygoodproxy.com:8080 \
+-H "Content-type: application/pdf" \
+-o revealed.pdf
+```
+
+
 
 
