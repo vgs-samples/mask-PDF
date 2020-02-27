@@ -1,0 +1,48 @@
+data:
+  - attributes:
+      created_at: '2020-02-26T00:33:00'
+      destination_override_endpoint: '*'
+      entries:
+        - classifiers: {}
+          config:
+            condition: AND
+            rules:
+              - condition: null
+                expression:
+                  field: Method
+                  operator: equals
+                  type: string
+                  values:
+                    - GET
+              - condition: null
+                expression:
+                  field: ContentType
+                  operator: equals
+                  type: string
+                  values:
+                    - application/pdf
+          id: 3224da23-911c-43d4-a19a-72f1bb70d22e
+          id_selector: null
+          operation: ENRICH
+          operations: null
+          phase: RESPONSE
+          public_token_generator: UUID
+          targets:
+            - body
+          token_manager: PERSISTENT
+          transformer: PDF_METADATA_TOKEN
+          transformer_config:
+            - '10,10,10,10'
+          transformer_config_map: null
+      host_endpoint: a44fb068.ngrok.io
+      id: b469469a-d786-41b3-846d-ee9d02ad1698
+      ordinal: null
+      port: 80
+      protocol: http
+      source_endpoint: '*'
+      tags:
+        name: mint-cream-fibre
+      updated_at: '2020-02-26T02:32:18'
+    id: b469469a-d786-41b3-846d-ee9d02ad1698
+    type: rule_chain
+version: 1
